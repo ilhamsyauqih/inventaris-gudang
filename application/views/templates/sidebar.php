@@ -25,6 +25,21 @@
                     </a>
                 </li>
                 <?php endif; ?>
+                <?php if ($this->session->userdata('role') == 'petugas'): ?>
+
+                <li class="nav-item mb-2">
+                    <a href="<?= base_url('transaksi/barangmasuk'); ?>" class="nav-link">
+                        Barang Masuk
+                    </a>
+                </li>
+
+                <li class="nav-item mb-2">
+                    <a href="<?= base_url('transaksi/barangkeluar'); ?>" class="nav-link">
+                        Barang Keluar
+                    </a>
+                </li>
+
+            <?php endif; ?>
 
             </ul>
         </div>
