@@ -18,9 +18,10 @@ class BarangMasuk extends CI_Controller {
 
     public function index()
     {
+        $data['title']  = 'Barang Masuk';
         $data['barang_masuk'] = $this->BarangMasuk_model->get_all();
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar');
         $this->load->view('transaksi/barang_masuk/index', $data);
         $this->load->view('templates/footer');

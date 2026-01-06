@@ -1,7 +1,11 @@
 <!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-<aside class="sidebar-krem">
+<aside class="sidebar-krem" id="sidebar">
+    <button class="sidebar-toggle" id="toggleSidebar" type="button">
+        <i class="bi bi-list"></i>
+    </button>
+
     <!-- BRAND -->
     <div class="sidebar-brand">
         <span class="fw-bold">Inventaris</span>
@@ -25,49 +29,61 @@
         <li>
             <a href="<?= base_url('dashboard'); ?>">
                 <i class="bi bi-speedometer2"></i>
-                <span>Dashboard</span>
+                <span class="menu-text">Dashboard</span>
             </a>
         </li>
 
         <!-- ADMIN -->
         <?php if ($this->session->userdata('role') == 'admin'): ?>
-        <li>
-            <a href="<?= base_url('master/barang'); ?>">
-                <i class="bi bi-box-seam"></i>
-                <span>Data Barang</span>
-            </a>
-        </li>
+            <li>
+                <a href="<?= base_url('master/barang'); ?>">
+                    <i class="bi bi-box-seam"></i>
+                    <span class="menu-text">Data Barang</span>
+                </a>
+            </li>
 
-        <li>
-            <a href="<?= base_url('master/supplier'); ?>">
-                <i class="bi bi-truck"></i>
-                <span>Supplier</span>
-            </a>
-        </li>
+            <li>
+                <a href="<?= base_url('master/supplier'); ?>">
+                    <i class="bi bi-truck"></i>
+                    <span class="menu-text">Supplier</span>
+                </a>
+            </li>
 
-        <li>
-            <a href="<?= base_url('laporan/stok'); ?>">
-                <i class="bi bi-clipboard-data"></i>
-                <span>Laporan Stok</span>
-            </a>
-        </li>
+            <li>
+                <a href="<?= base_url('laporan/laporanstok'); ?>">
+                    <i class="bi bi-clipboard-data"></i>
+                    <span class="menu-text">Laporan Stok</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= base_url('laporan/laporantransaksi'); ?>">
+                    <i class="bi bi-clipboard-data"></i>
+                    <span class="menu-text">Laporan Transaksi</span>
+                </a>
+            </li>
         <?php endif; ?>
 
         <!-- PETUGAS -->
         <?php if ($this->session->userdata('role') == 'petugas'): ?>
-        <li>
-            <a href="<?= base_url('transaksi/barangmasuk'); ?>">
-                <i class="bi bi-arrow-down-square"></i>
-                <span>Barang Masuk</span>
-            </a>
-        </li>
+            <li>
+                <a href="<?= base_url('transaksi/barangmasuk'); ?>">
+                    <i class="bi bi-arrow-down-square"></i>
+                    <span class="menu-text">Barang Masuk</span>
+                </a>
+            </li>
 
-        <li>
-            <a href="<?= base_url('transaksi/barangkeluar'); ?>">
-                <i class="bi bi-arrow-up-square"></i>
-                <span>Barang Keluar</span>
-            </a>
-        </li>
+            <li>
+                <a href="<?= base_url('transaksi/barangkeluar'); ?>">
+                    <i class="bi bi-arrow-up-square"></i>
+                    <span class="menu-text">Barang Keluar</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?= base_url('laporan/laporantransaksi'); ?>">
+                    <i class="bi bi-clipboard-data"></i>
+                    <span class="menu-text">Laporan Transaksi</span>
+                </a>
+            </li>
         <?php endif; ?>
 
     </ul>
