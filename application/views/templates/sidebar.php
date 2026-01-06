@@ -19,6 +19,11 @@
                         Data Barang
                     </a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('master/supplier'); ?>">
+                        Data Supplier
+                    </a>
+                </li>
                 <?php endif; ?>
 
             </ul>
