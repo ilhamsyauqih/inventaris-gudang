@@ -52,3 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'auth/login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['transaksi/barangmasuk'] = 'transaksi/BarangMasuk/index';
+$route['transaksi/barangmasuk/tambah'] = 'transaksi/BarangMasuk/tambah';
+$route['transaksi/barangmasuk/simpan'] = 'transaksi/BarangMasuk/simpan';
