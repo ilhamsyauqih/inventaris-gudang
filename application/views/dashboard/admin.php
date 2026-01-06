@@ -31,6 +31,23 @@
             </div>
         </div>
     </div>
+    <div class="col-md-3">
+    <a href="<?= base_url('master/barang'); ?>" class="text-decoration-none text-dark">
+        <div class="card card-krem shadow-sm p-3">
+            <small class="text-muted">Total Barang</small>
+            <h3><?= $total_barang; ?></h3>
+            <small class="text-muted">Lihat Data Barang</small>
+        </div>
+    </a>
+</div>
+<div class="row mt-4">
+    <div class="col-md-4">
+        <a href="<?= base_url('master/barang/tambah'); ?>" class="btn btn-success w-100">
+            + Tambah Barang
+        </a>
+    </div>
+</div>
+
 
     <div class="row mt-4">
         <div class="col-12">
