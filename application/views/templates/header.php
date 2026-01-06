@@ -136,6 +136,7 @@
         /* FOOTER */
         .sidebar-footer {
             margin-top: auto;
+            padding-top: 150px;
         }
 
         .logout-btn {
