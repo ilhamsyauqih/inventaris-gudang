@@ -2,10 +2,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 <aside class="sidebar-krem" id="sidebar">
-    <button class="sidebar-toggle" id="toggleSidebar" type="button">
-        <i class="bi bi-list"></i>
-    </button>
-
     <!-- BRAND -->
     <div class="sidebar-brand">
         <span class="fw-bold">Inventaris</span>
