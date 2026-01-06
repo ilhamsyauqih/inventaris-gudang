@@ -1,3 +1,4 @@
+
 <div class="container mt-4">
 
     <h4 class="text-krem mb-3">Tambah Barang</h4>
@@ -5,7 +6,9 @@
     <div class="card card-krem shadow-sm">
         <div class="card-body">
 
-            <form action="<?= base_url('master/barang/simpan'); ?>" method="post">
+            <form action="<?= base_url('master/barang/simpan'); ?>" method="post" enctype="multipart/form-data">
+                
+
 
                 <div class="mb-3">
                     <label>Kategori</label>
@@ -18,6 +21,11 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
+<div class="mb-3">
+    <label>Gambar Barang</label>
+    <input type="file" name="gambar" class="form-control" accept="image/*">
+    <small class="text-muted">Format JPG / PNG (max 2MB)</small>
+</div>
 
                 <div class="mb-3">
                     <label>Kode Barang</label>

@@ -22,4 +22,16 @@ class Barang_model extends CI_Model {
     {
         return $this->db->insert('barang', $data);
     }
+
+    public function get_by_id($id)
+{
+    return $this->db->get_where('barang', ['id_barang' => $id])->row();
+}
+
+public function update($id, $data)
+{
+    $this->db->where('id_barang', $id);
+    return $this->db->update('barang', $data);
+}
+
 }
