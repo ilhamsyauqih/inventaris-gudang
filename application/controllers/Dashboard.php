@@ -1,11 +1,14 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Dashboard extends CI_Controller
+{
 
     public function __construct()
     {
         parent::__construct();
+
+        $this->load->model('Dashboard_model');
 
         if (!$this->session->userdata('logged_in')) {
             redirect('auth/login');
@@ -16,11 +19,10 @@ class Dashboard extends CI_Controller {
     {
         $data['title'] = 'Dashboard';
 
-        // Dummy data (ganti query nanti)
-        $data['total_barang'] = 125;
-        $data['stok_total']   = 3420;
-        $data['barang_masuk'] = 28;
-        $data['barang_keluar']= 17;
+        $data['total_barang']   = $this->Dashboard_model->total_barang();
+        $data['stok_total']     = $this->Dashboard_model->total_stok();
+        $data['barang_masuk']   = $this->Dashboard_model->total_barang_masuk();
+        $data['barang_keluar']  = $this->Dashboard_model->total_barang_keluar();
 
         $role = $this->session->userdata('role');
 

@@ -55,3 +55,9 @@ $route['translate_uri_dashes'] = FALSE;
 $route['transaksi/barangmasuk'] = 'transaksi/BarangMasuk/index';
 $route['transaksi/barangmasuk/tambah'] = 'transaksi/BarangMasuk/tambah';
 $route['transaksi/barangmasuk/simpan'] = 'transaksi/BarangMasuk/simpan';
+$route['transaksi/barangkeluar'] = 'transaksi/BarangKeluar/index';
+$route['transaksi/barangkeluar/tambah'] = 'transaksi/BarangKeluar/tambah';
+$route['transaksi/barangkeluar/simpan'] = 'transaksi/BarangKeluar/simpan';
+$route['laporan/laporanstok'] = 'laporan/LaporanStok/index';
+$route['laporan/laporantransaksi'] = 'laporan/LaporanTransaksi/index';
+

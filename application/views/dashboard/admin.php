@@ -24,30 +24,36 @@
             </div>
 
             <div class="col-lg-3 col-md-6">
+                <a href="<?= base_url('laporan/laporanstok'); ?>" class="text-decoration-none text-dark">
                 <div class="card card-krem shadow-sm stat-card">
                     <div class="card-body">
                         <small class="text-muted">Total Stok</small>
                         <h3 class="fw-bold mb-0"><?= $stok_total; ?></h3>
                     </div>
                 </div>
+                </a>
             </div>
 
             <div class="col-lg-3 col-md-6">
+                <a href="<?= base_url('laporan/laporantransaksi'); ?>" class="text-decoration-none text-dark">
                 <div class="card card-krem shadow-sm stat-card">
                     <div class="card-body">
                         <small class="text-muted">Barang Masuk</small>
                         <h3 class="fw-bold mb-0"><?= $barang_masuk; ?></h3>
                     </div>
                 </div>
+                </a>
             </div>
 
             <div class="col-lg-3 col-md-6">
+                <a href="<?= base_url('laporan/laporantransaksi'); ?>" class="text-decoration-none text-dark">
                 <div class="card card-krem shadow-sm stat-card">
                     <div class="card-body">
                         <small class="text-muted">Barang Keluar</small>
                         <h3 class="fw-bold mb-0"><?= $barang_keluar; ?></h3>
                     </div>
                 </div>
+                </a>
             </div>
 
         </div>
@@ -57,27 +63,32 @@
     <div class="dashboard-section">
         <div class="row g-3">
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a href="<?= base_url('master/barang/tambah'); ?>"
                    class="btn btn-success w-100 py-2 shadow-sm">
                     + Tambah Barang
                 </a>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a href="<?= base_url('master/supplier/tambah'); ?>"
                    class="btn btn-primary w-100 py-2 shadow-sm">
                     + Tambah Supplier
                 </a>
             </div>
 
-            <div class="col-md-4">
-                <a href="<?= base_url('laporan/stok'); ?>"
+            <div class="col-md-3">
+                <a href="<?= base_url('laporan/laporanstok'); ?>"
                    class="btn btn-outline-secondary w-100 py-2 shadow-sm">
                     Laporan Stok
                 </a>
             </div>
-
+            <div class="col-md-3">
+                <a href="<?= base_url('laporan/laporantransaksi'); ?>"
+                   class="btn btn-outline-secondary w-100 py-2 shadow-sm">
+                    Laporan Transaksi
+                </a>
+            </div>
         </div>
     </div>
 
