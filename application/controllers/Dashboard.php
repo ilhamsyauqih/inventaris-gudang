@@ -27,7 +27,6 @@ class Dashboard extends CI_Controller
         $role = $this->session->userdata('role');
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
 
         // ================= ROLE CHECK =================
         if ($role == 'admin') {

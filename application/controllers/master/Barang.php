@@ -37,7 +37,6 @@ class Barang extends CI_Controller {
     $data['kategori_aktif'] = $id_kategori;
 
     $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar');
     $this->load->view('master/barang/index', $data);
     $this->load->view('templates/footer');
 }
@@ -49,7 +48,6 @@ class Barang extends CI_Controller {
         $data['kategori'] = $this->Barang_model->get_kategori();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
         $this->load->view('master/barang/tambah', $data);
         $this->load->view('templates/footer');
     }
@@ -92,7 +90,6 @@ class Barang extends CI_Controller {
     $data['kategori'] = $this->Barang_model->get_kategori();
 
     $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar');
     $this->load->view('master/barang/edit', $data);
     $this->load->view('templates/footer');
 }

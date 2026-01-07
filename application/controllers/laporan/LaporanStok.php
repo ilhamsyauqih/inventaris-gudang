@@ -21,7 +21,6 @@ class LaporanStok extends CI_Controller {
         $data['stok'] = $this->LaporanStok_model->get_all();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
         $this->load->view('laporan/stok/index', $data);
         $this->load->view('templates/footer');
     }

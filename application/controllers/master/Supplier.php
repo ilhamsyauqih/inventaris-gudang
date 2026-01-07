@@ -25,7 +25,6 @@ class Supplier extends CI_Controller {
         $data['supplier'] = $this->Supplier_model->get_all();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
         $this->load->view('master/supplier/index', $data);
         $this->load->view('templates/footer');
     }
@@ -35,7 +34,6 @@ class Supplier extends CI_Controller {
         $data['title'] = 'Tambah Supplier';
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
         $this->load->view('master/supplier/tambah');
         $this->load->view('templates/footer');
     }
@@ -57,7 +55,6 @@ class Supplier extends CI_Controller {
     $data['supplier'] = $this->Supplier_model->get_by_id($id);
 
     $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar');
     $this->load->view('master/supplier/edit', $data);
     $this->load->view('templates/footer');
 }

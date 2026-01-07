@@ -1,53 +1,85 @@
 <div class="content-wrapper krem-bg">
-    <div class="container-fluid py-4">
+    <div class="container-fluid py-4 px-lg-4">
 
         <!-- Header -->
-        <div class="mb-4">
-            <h2 class="page-title">Laporan Transaksi</h2>
-            <p class="text-muted">
+        <div class="mb-5 animate__animated animate__fadeInDown">
+            <h2 class="section-title mb-1">📈 Laporan Transaksi</h2>
+            <p class="text-muted mb-0">
                 Riwayat transaksi barang masuk dan barang keluar
             </p>
         </div>
 
         <!-- Card -->
-        <div class="card shadow-sm rounded-4">
-            <div class="card-body">
+        <div class="card card-barang border-0 shadow-sm animate__animated animate__fadeInUp">
+            <div class="card-body p-0 overflow-hidden">
 
-                <table class="table table-hover align-middle mb-0">
-                    <thead class="table-light">
-                        <tr>
-                            <th>No</th>
-                            <th>Tanggal</th>
-                            <th>Nama Barang</th>
-                            <th>Jenis</th>
-                            <th>Keterangan</th>
-                            <th class="text-end">Jumlah</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $no = 1; foreach ($transaksi as $t): ?>
-                        <tr>
-                            <td><?= $no++; ?></td>
-                            <td><?= date('d M Y', strtotime($t->tanggal)); ?></td>
-                            <td><?= $t->nama_barang; ?></td>
-                            <td>
-                                <?php if ($t->jenis == 'Barang Masuk'): ?>
-                                    <span class="badge bg-success">Barang Masuk</span>
-                                <?php else: ?>
-                                    <span class="badge bg-warning text-dark">Barang Keluar</span>
-                                <?php endif; ?>
-                            </td>
-                            <td><?= $t->keterangan; ?></td>
-                            <td class="text-end fw-semibold">
-                                <?= $t->jumlah; ?>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="py-3 px-4 text-muted fw-bold text-uppercase fs-7"
+                                    style="letter-spacing: 0.5px;">No</th>
+                                <th class="py-3 px-4 text-muted fw-bold text-uppercase fs-7"
+                                    style="letter-spacing: 0.5px;">Tanggal</th>
+                                <th class="py-3 px-4 text-muted fw-bold text-uppercase fs-7"
+                                    style="letter-spacing: 0.5px;">Nama Barang</th>
+                                <th class="py-3 px-4 text-muted fw-bold text-uppercase fs-7"
+                                    style="letter-spacing: 0.5px;">Jenis</th>
+                                <th class="py-3 px-4 text-muted fw-bold text-uppercase fs-7"
+                                    style="letter-spacing: 0.5px;">Keterangan</th>
+                                <th class="py-3 px-4 text-end text-muted fw-bold text-uppercase fs-7"
+                                    style="letter-spacing: 0.5px;">Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1;
+                            foreach ($transaksi as $t): ?>
+                                <tr>
+                                    <td class="px-4 py-3 text-muted"><?= $no++; ?></td>
+                                    <td class="px-4 py-3">
+                                        <span
+                                            class="fw-medium text-dark"><?= date('d M Y', strtotime($t->tanggal)); ?></span>
+                                    </td>
+                                    <td class="px-4 py-3">
+                                        <div class="fw-bold text-krem"><?= $t->nama_barang; ?></div>
+                                    </td>
+                                    <td class="px-4 py-3">
+                                        <?php if ($t->jenis == 'Barang Masuk'): ?>
+                                            <span class="badge bg-info-soft text-info rounded-pill px-3 py-2">
+                                                <i class="bi bi-arrow-down-circle me-1"></i>Masuk
+                                            </span>
+                                        <?php else: ?>
+                                            <span class="badge bg-warning-soft text-warning rounded-pill px-3 py-2">
+                                                <i class="bi bi-arrow-up-circle me-1"></i>Keluar
+                                            </span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td class="px-4 py-3 text-muted"><?= $t->keterangan; ?></td>
+                                    <td class="px-4 py-3 text-end fw-bold text-dark">
+                                        <?= $t->jumlah; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
         </div>
 
     </div>
 </div>
+
+<style>
+    .fs-7 {
+        font-size: 0.75rem;
+    }
+
+    .bg-info-soft {
+        background-color: rgba(13, 202, 240, 0.1);
+    }
+
+    .bg-warning-soft {
+        background-color: rgba(255, 193, 7, 0.1);
+    }
+</style>
