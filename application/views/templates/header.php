@@ -236,6 +236,37 @@
     background: #f7f1e3;
 }
 
+.section-title {
+    font-weight: 700;
+    color: #6f5e4b;
+}
+
+.card-soft {
+    border-radius: 18px;
+    transition: all 0.25s ease;
+}
+
+.card-soft:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+}
+
+.badge-krem {
+    background-color: #e7d8bd;
+    color: #6f5e4b;
+    font-weight: 500;
+}
+
+.filter-box {
+    border-radius: 18px;
+    background: linear-gradient(135deg, #fffaf0, #f3ead7);
+}
+
+.btn-soft {
+    border-radius: 30px;
+    padding: 8px 20px;
+}
+
 /* ===== SIDEBAR ===== */
 .sidebar-krem {
     width: 260px;
