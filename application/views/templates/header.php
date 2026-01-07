@@ -354,6 +354,103 @@
             min-width: 140px;
             text-align: right;
         }
+.layout {
+    display: flex;
+    min-height: 100vh;
+    background: #f7f1e3;
+}
+
+.section-title {
+    font-weight: 700;
+    color: #6f5e4b;
+}
+
+.card-soft {
+    border-radius: 18px;
+    transition: all 0.25s ease;
+}
+
+.card-soft:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+}
+
+.badge-krem {
+    background-color: #e7d8bd;
+    color: #6f5e4b;
+    font-weight: 500;
+}
+
+.filter-box {
+    border-radius: 18px;
+    background: linear-gradient(135deg, #fffaf0, #f3ead7);
+}
+
+.btn-soft {
+    border-radius: 30px;
+    padding: 8px 20px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar-krem {
+    width: 260px;
+    background: #f7f1e3;
+    transition: width 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    padding: 20px 15px;
+    overflow: hidden;
+    flex-shrink: 0; /* PENTING */
+}
+
+/* COLLAPSED */
+.sidebar-krem.collapsed {
+    width: 80px;
+}
+
+/* sembunyikan teks */
+.sidebar-krem.collapsed .menu-text,
+.sidebar-krem.collapsed .sidebar-brand span,
+.sidebar-krem.collapsed .sidebar-brand small,
+.sidebar-krem.collapsed .user-info,
+.sidebar-krem.collapsed .logout-btn span {
+    display: none;
+}
+
+/* center icon */
+.sidebar-krem.collapsed .sidebar-menu a {
+    justify-content: center;
+}
+
+/* avatar */
+.sidebar-krem.collapsed .user-avatar {
+    margin: 0 auto;
+}
+
+/* ===== TOGGLE ===== */
+.sidebar-toggle {
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    flex: 1;
+    padding: 24px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+/* bootstrap container override */
+.main-content .container,
+.main-content .container-fluid {
+    max-width: 100% !important;
+    padding-left: 0;
+    padding-right: 0;
+}
 
         .badge-krem {
             background: #e9dfc9;

@@ -12,12 +12,35 @@ class Auth extends CI_Controller {
     }
 
     public function login()
-    {
-        if ($this->session->userdata('logged_in')) {
+{
+    if ($this->input->post()) {
+
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+
+        $user = $this->db->get_where('users', [
+            'username' => $username
+        ])->row();
+
+        if ($user && password_verify($password, $user->password)) {
+
+            $this->session->set_userdata([
+                'id_user'   => $user->id_user,
+                'nama'      => $user->nama,
+                'role'      => $user->role,
+                'logged_in' => true
+            ]);
+
             redirect('dashboard');
         }
-        $this->load->view('auth/login');
+
+        $this->session->set_flashdata('error', 'Username atau password salah');
+        redirect('auth/login');
     }
+
+    $this->load->view('auth/login');
+}
+
 
     public function process()
     {
@@ -66,6 +89,29 @@ class Auth extends CI_Controller {
         $this->session->set_flashdata('success', 'Akun berhasil dibuat. Silakan login.');
         redirect('auth/login');
     }
+
+
+    public function save_register()
+{
+    $data = [
+        'nama'       => $this->input->post('nama'),
+        'username'   => $this->input->post('username'),
+        'password'   => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+        'role'       => $this->input->post('role'),
+        'created_at' => date('Y-m-d H:i:s')
+    ];
+
+    // Cek username sudah ada
+    $cek = $this->db->get_where('users', ['username' => $data['username']])->row();
+    if ($cek) {
+        $this->session->set_flashdata('error', 'Username sudah digunakan');
+        redirect('auth/register');
+    }
+
+    $this->db->insert('users', $data);
+    $this->session->set_flashdata('success', 'Pendaftaran berhasil, silakan login');
+    redirect('auth/login');
+}
 
     public function logout()
     {
