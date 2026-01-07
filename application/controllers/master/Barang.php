@@ -22,15 +22,26 @@ class Barang extends CI_Controller {
     }
 
     public function index()
-    {
-        $data['title']  = 'Data Barang';
-        $data['barang'] = $this->Barang_model->get_all();
+{
+    $data['title'] = 'Data Barang';
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
-        $this->load->view('master/barang/index', $data);
-        $this->load->view('templates/footer');
+    $id_kategori = $this->input->get('kategori');
+
+    if ($id_kategori) {
+        $data['barang'] = $this->Barang_model->get_by_kategori($id_kategori);
+    } else {
+        $data['barang'] = $this->Barang_model->get_all();
     }
+
+    $data['kategori'] = $this->Barang_model->get_kategori();
+    $data['kategori_aktif'] = $id_kategori;
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar');
+    $this->load->view('master/barang/index', $data);
+    $this->load->view('templates/footer');
+}
+
 
     public function tambah()
     {
@@ -118,5 +129,25 @@ public function update()
     redirect('master/barang');
 }
 
+public function hapus($id)
+{
+    // Ambil data barang dulu
+    $barang = $this->Barang_model->get_by_id($id);
+
+    if (!$barang) {
+        show_404();
+    }
+
+    // Hapus file gambar (jika ada)
+    if ($barang->gambar && file_exists('./assets/uploads/barang/'.$barang->gambar)) {
+        unlink('./assets/uploads/barang/'.$barang->gambar);
+    }
+
+    // Hapus data barang dari database
+    $this->Barang_model->delete($id);
+
+    $this->session->set_flashdata('success', 'Barang berhasil dihapus');
+    redirect('master/barang');
+}
 
 }

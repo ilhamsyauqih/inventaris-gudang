@@ -33,5 +33,19 @@ public function update($id, $data)
     $this->db->where('id_barang', $id);
     return $this->db->update('barang', $data);
 }
+public function get_by_kategori($id_kategori)
+{
+    $this->db->select('barang.*, kategori.nama_kategori');
+    $this->db->from('barang');
+    $this->db->join('kategori', 'kategori.id_kategori = barang.id_kategori');
+    $this->db->where('barang.id_kategori', $id_kategori);
+    return $this->db->get()->result();
+}
+
+public function delete($id)
+{
+    $this->db->where('id_barang', $id);
+    return $this->db->delete('barang');
+}
 
 }
