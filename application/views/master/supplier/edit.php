@@ -1,49 +1,63 @@
-<div class="container py-4">
+<div class="content-wrapper krem-bg">
+    <div class="container-fluid py-4">
 
-    <h3 class="fw-bold text-krem mb-3">Edit Supplier</h3>
+        <h2 class="page-title centered mb-4">Edit Supplier</h2>
 
-    <div class="card card-krem shadow-sm">
-        <div class="card-body">
-
+        <div class="form-card">
             <form action="<?= base_url('master/supplier/update'); ?>" method="post">
+                <input type="hidden" name="id_supplier" value="<?= $supplier->id_supplier; ?>">
 
-                <input type="hidden" name="id_supplier" 
-                       value="<?= $supplier->id_supplier; ?>">
+                <div class="form-grid">
 
-                <div class="mb-3">
-                    <label class="form-label">Nama Supplier</label>
-                    <input type="text" name="nama_supplier"
-                           value="<?= $supplier->nama_supplier; ?>"
-                           class="form-control" required>
+                    <!-- NAMA SUPPLIER -->
+                    <div class="form-row">
+                        <div class="icon-box">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <div class="form-input">
+                            <label>Nama Supplier</label>
+                            <input type="text" name="nama_supplier" value="<?= $supplier->nama_supplier; ?>"
+                                class="form-pill" required>
+                        </div>
+                    </div>
+
+                    <!-- TELEPON -->
+                    <div class="form-row">
+                        <div class="icon-box">
+                            <i class="bi bi-telephone"></i>
+                        </div>
+                        <div class="form-input">
+                            <label>Telepon</label>
+                            <input type="text" name="telepon" value="<?= $supplier->telepon; ?>" class="form-pill"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- ALAMAT -->
+                    <div class="form-row full mb-0">
+                        <div class="icon-box">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <div class="form-input">
+                            <label>Alamat</label>
+                            <textarea name="alamat" rows="2" class="form-pill"
+                                required><?= $supplier->alamat; ?></textarea>
+                        </div>
+                    </div>
+
+                    <!-- ACTION -->
+                    <div class="form-action full mt-3">
+                        <button type="submit" class="btn btn-success btn-pill px-4">
+                            Update
+                        </button>
+                        <a href="<?= base_url('master/supplier'); ?>" class="btn btn-secondary btn-pill px-4">
+                            Kembali
+                        </a>
+                    </div>
+
                 </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Alamat</label>
-                    <textarea name="alamat"
-                              class="form-control"
-                              rows="3" required><?= $supplier->alamat; ?></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label">Telepon</label>
-                    <input type="text" name="telepon"
-                           value="<?= $supplier->telepon; ?>"
-                           class="form-control" required>
-                </div>
-
-                <div class="d-flex gap-2">
-                    <button class="btn btn-success">
-                        Update
-                    </button>
-                    <a href="<?= base_url('master/supplier'); ?>"
-                       class="btn btn-secondary">
-                        Kembali
-                    </a>
-                </div>
-
             </form>
-
         </div>
-    </div>
 
+    </div>
 </div>

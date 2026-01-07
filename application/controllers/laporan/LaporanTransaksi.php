@@ -20,7 +20,6 @@ class LaporanTransaksi extends CI_Controller {
         $data['transaksi'] = $this->LaporanTransaksi_model->get_all();
 
         $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
         $this->load->view('laporan/transaksi/index', $data);
         $this->load->view('templates/footer');
     }

@@ -1,69 +1,66 @@
-<div class="container py-4">
+<div class="content-wrapper krem-bg">
+    <div class="container-fluid py-4 px-lg-4">
 
-    <!-- HEADER -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h3 class="fw-bold text-krem mb-1">Data Supplier</h3>
-            <small class="text-muted">
-                Daftar supplier bahan dan perlengkapan percetakan
-            </small>
+        <!-- HEADER SECTION -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="section-title mb-1">🏭 Data Supplier</h2>
+                <p class="text-muted mb-0">
+                    Daftar supplier bahan dan perlengkapan percetakan
+                </p>
+            </div>
+            <a href="<?= base_url('master/supplier/tambah'); ?>" class="btn btn-success btn-pill shadow-sm">
+                <i class="bi bi-plus-lg me-1"></i> Tambah Supplier
+            </a>
         </div>
 
-        <a href="<?= base_url('master/supplier/tambah'); ?>"
-           class="btn btn-primary shadow-sm">
-            + Tambah Supplier
-        </a>
-    </div>
+        <!-- GRID SUPPLIER -->
+        <div class="row g-4">
+            <?php foreach ($supplier as $s): ?>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="card card-barang h-100 shadow-sm border-0 animate__animated animate__fadeInUp">
 
-    <!-- CARD LIST -->
-    <div class="row g-4">
+                        <!-- PLACEHOLDER ICON in place of Image -->
+                        <div class="card-img-container bg-light d-flex align-items-center justify-content-center"
+                            style="height: 180px;">
+                            <i class="bi bi-building text-krem display-1 opacity-25"></i>
+                        </div>
 
-        <?php foreach ($supplier as $s): ?>
-        <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="card-body pt-0">
+                            <!-- Helper spacing to match card-barang layout -->
+                            <div class="mb-3"></div>
 
-            <div class="card card-krem shadow-sm h-100">
+                            <h6 class="barang-title mb-1"><?= $s->nama_supplier ?></h6>
+                            <small class="text-muted d-block mb-3">
+                                <i class="bi bi-geo-alt me-1"></i><?= $s->alamat ?>
+                            </small>
 
-                <div class="card-body d-flex flex-column">
+                            <!-- TELEPON INFO (Styled like Stok Info) -->
+                            <div class="stok-info">
+                                <span class="stok-label">Telepon:</span>
+                                <span class="stok-value text-dark fw-bold">
+                                    <?= $s->telepon ?>
+                                </span>
+                            </div>
+                        </div>
 
-                    <!-- NAMA -->
-                    <h6 class="fw-bold mb-2 text-krem">
-                        <?= $s->nama_supplier; ?>
-                    </h6>
-
-                    <!-- INFO -->
-                    <div class="text-muted small mb-2">
-                        <div>
-                            <strong>Alamat:</strong><br>
-                            <?= $s->alamat; ?>
+                        <div class="card-footer bg-transparent border-0 pt-0 pb-4 px-4">
+                            <div class="d-flex gap-2">
+                                <a href="<?= base_url('master/supplier/edit/' . $s->id_supplier); ?>"
+                                    class="btn btn-outline-krem btn-sm flex-grow-1 py-2">
+                                    <i class="bi bi-pencil-square me-1"></i> Edit
+                                </a>
+                                <a href="<?= base_url('master/supplier/hapus/' . $s->id_supplier); ?>"
+                                    class="btn btn-outline-danger btn-sm px-3 py-2"
+                                    onclick="return confirm('Yakin ingin menghapus supplier ini?')">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="text-muted small mb-3">
-                        <strong>Telepon:</strong><br>
-                        <?= $s->telepon; ?>
-                    </div>
-
-                    <!-- AKSI -->
-                    <div class="mt-auto d-flex gap-2">
-                        <a href="<?= base_url('master/supplier/edit/'.$s->id_supplier); ?>"
-                           class="btn btn-outline-warning btn-sm w-100">
-                            Edit
-                        </a>
-
-                        <a href="<?= base_url('master/supplier/hapus/'.$s->id_supplier); ?>"
-                           class="btn btn-outline-danger btn-sm"
-                           onclick="return confirm('Hapus supplier ini?')">
-                            Hapus
-                        </a>
-                    </div>
-
                 </div>
-
-            </div>
-
+            <?php endforeach; ?>
         </div>
-        <?php endforeach; ?>
 
     </div>
-
 </div>

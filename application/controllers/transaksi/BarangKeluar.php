@@ -21,7 +21,6 @@ class BarangKeluar extends CI_Controller {
         $data['barang_keluar'] = $this->BarangKeluar_model->get_all();
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar');
         $this->load->view('transaksi/barang_keluar/index', $data);
         $this->load->view('templates/footer');
     }
@@ -31,7 +30,6 @@ class BarangKeluar extends CI_Controller {
         $data['barang'] = $this->Barang_model->get_all();
 
         $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
         $this->load->view('transaksi/barang_keluar/tambah', $data);
         $this->load->view('templates/footer');
     }

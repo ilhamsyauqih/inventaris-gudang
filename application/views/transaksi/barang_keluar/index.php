@@ -1,44 +1,85 @@
 <div class="content-wrapper krem-bg">
-    <div class="container-fluid py-4">
+    <div class="container-fluid py-4 px-lg-4">
 
         <!-- Header -->
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="page-title">Barang Keluar</h2>
-            <a href="<?= base_url('transaksi/barangkeluar/tambah'); ?>" class="btn btn-primary rounded-btn">
-                + Input Barang Keluar
+        <div class="d-flex justify-content-between align-items-center mb-5 animate__animated animate__fadeInDown">
+            <div>
+                <h2 class="section-title mb-1">📤 Barang Keluar</h2>
+                <p class="text-muted mb-0">Riwayat barang keluar dari gudang</p>
+            </div>
+            <a href="<?= base_url('transaksi/barangkeluar/tambah'); ?>" class="btn btn-primary btn-pill shadow-sm">
+                <i class="bi bi-plus-lg me-1"></i> Input Barang Keluar
             </a>
         </div>
 
         <!-- CARD LIST -->
-        <?php foreach ($barang_keluar as $bk): ?>
-        <div class="data-card">
+        <div class="row g-3">
+            <?php foreach ($barang_keluar as $bk): ?>
+                <div class="col-12">
+                    <div class="card card-barang border-0 shadow-sm animate__animated animate__fadeInUp">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
 
-            <div class="data-card-left">
-                <h5><?= $bk->nama_barang ?></h5>
-                <small class="text-muted">
-                    Tujuan: <?= $bk->tujuan ?>
-                </small>
-            </div>
+                                <!-- Icon & Title -->
+                                <div class="col-md-4 mb-3 mb-md-0 d-flex align-items-center gap-3">
+                                    <div class="icon-box bg-warning-soft text-warning rounded-circle flex-shrink-0">
+                                        <i class="bi bi-arrow-up-circle fs-5"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="barang-title mb-1"><?= $bk->nama_barang ?></h6>
+                                        <small class="text-muted">
+                                            <i class="bi bi-building me-1"></i>Tujuan: <?= $bk->tujuan ?>
+                                        </small>
+                                    </div>
+                                </div>
 
-            <div class="data-card-middle">
-                <div class="info-box">
-                    <span>Jumlah</span>
-                    <strong><?= $bk->jumlah ?></strong>
+                                <!-- Details -->
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <div class="d-flex gap-4">
+                                        <div>
+                                            <small
+                                                class="d-block text-muted mb-1 text-uppercase fs-7 fw-bold">Jumlah</small>
+                                            <span class="fs-5 fw-bold text-dark"><?= $bk->jumlah ?></span>
+                                        </div>
+                                        <div>
+                                            <small
+                                                class="d-block text-muted mb-1 text-uppercase fs-7 fw-bold">Tanggal</small>
+                                            <span class="fw-medium"><?= date('d M Y', strtotime($bk->tanggal)) ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Badge -->
+                                <div class="col-md-2 text-md-end">
+                                    <span class="badge bg-warning-soft text-warning rounded-pill px-3 py-2">
+                                        Barang Keluar
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="info-box">
-                    <span>Tanggal</span>
-                    <strong><?= date('d M Y', strtotime($bk->tanggal)) ?></strong>
-                </div>
-            </div>
-
-            <div class="data-card-right">
-                <span class="badge badge-krem">
-                    Barang Keluar
-                </span>
-            </div>
-
+            <?php endforeach; ?>
         </div>
-        <?php endforeach; ?>
 
     </div>
 </div>
+
+<style>
+    .fs-7 {
+        font-size: 0.75rem;
+    }
+
+    .bg-warning-soft {
+        background-color: rgba(255, 193, 7, 0.1);
+    }
+
+    .icon-box {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
