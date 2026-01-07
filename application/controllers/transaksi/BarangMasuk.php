@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class BarangMasuk extends CI_Controller {
+class BarangMasuk extends CI_Controller
+{
 
     public function __construct()
     {
@@ -18,7 +19,7 @@ class BarangMasuk extends CI_Controller {
 
     public function index()
     {
-        $data['title']  = 'Barang Masuk';
+        $data['title'] = 'Barang Masuk';
         $data['barang_masuk'] = $this->BarangMasuk_model->get_all();
 
         $this->load->view('templates/header', $data);
@@ -29,27 +30,26 @@ class BarangMasuk extends CI_Controller {
 
     public function tambah()
     {
-        $data['barang']   = $this->Barang_model->get_all();
+        if ($this->input->post()) {
+            $data_simpan = [
+                'id_barang' => $this->input->post('id_barang'),
+                'id_supplier' => $this->input->post('id_supplier'),
+                'jumlah' => $this->input->post('jumlah'),
+                'tanggal' => $this->input->post('tanggal'),
+                'keterangan' => $this->input->post('keterangan')
+            ];
+
+            $this->BarangMasuk_model->insert($data_simpan);
+            $this->session->set_flashdata('pesan', 'Data berhasil disimpan!');
+            redirect('transaksi/barangmasuk');
+        }
+
+        $data['barang'] = $this->Barang_model->get_all();
         $data['supplier'] = $this->Supplier_model->get_all();
 
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
         $this->load->view('transaksi/barang_masuk/tambah', $data);
         $this->load->view('templates/footer');
-    }
-
-    public function simpan()
-    {
-        $data = [
-            'id_barang'   => $this->input->post('id_barang'),
-            'id_supplier' => $this->input->post('id_supplier'),
-            'jumlah'      => $this->input->post('jumlah'),
-            'tanggal'     => $this->input->post('tanggal'),
-            'keterangan'  => $this->input->post('keterangan')
-        ];
-
-        $this->BarangMasuk_model->insert($data);
-
-        redirect('transaksi/barangmasuk');
     }
 }
