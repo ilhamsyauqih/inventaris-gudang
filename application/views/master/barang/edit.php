@@ -68,7 +68,8 @@
                         </div>
                         <?php if ($barang->gambar): ?>
                             <div class="thumbnail-preview me-3">
-                                <img src="<?= base_url('assets/uploads/barang/' . $barang->gambar); ?>" alt="Thumb">
+                                <img src="<?= base_url('assets/uploads/barang/' . $barang->gambar); ?>" alt="Thumb"
+                                    style="max-width: 200px; height: auto; border-radius: 8px;">
                             </div>
                         <?php endif; ?>
                         <div class="form-input">

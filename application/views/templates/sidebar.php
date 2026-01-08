@@ -1,14 +1,16 @@
 <!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
+<!-- SIDEBAR -->
 <aside class="sidebar-krem" id="sidebar">
-    <!-- BRAND -->
+
+    <!-- BRAND / LOGO -->
     <div class="sidebar-brand">
         <span class="fw-bold">Inventaris</span>
         <small>Percetakan</small>
     </div>
 
-    <!-- USER -->
+    <!-- INFO USER LOGIN -->
     <div class="sidebar-user">
         <div class="user-avatar">
             <i class="bi bi-person-circle"></i>
@@ -19,9 +21,10 @@
         </div>
     </div>
 
-    <!-- MENU -->
+    <!-- MENU NAVIGASI -->
     <ul class="sidebar-menu">
 
+        <!-- DASHBOARD -->
         <li>
             <a href="<?= base_url('dashboard'); ?>">
                 <i class="bi bi-speedometer2"></i>
@@ -29,7 +32,7 @@
             </a>
         </li>
 
-        <!-- ADMIN -->
+        <!-- MENU ADMIN -->
         <?php if ($this->session->userdata('role') == 'admin'): ?>
             <li>
                 <a href="<?= base_url('master/barang'); ?>">
@@ -51,6 +54,7 @@
                     <span class="menu-text">Laporan Stok</span>
                 </a>
             </li>
+
             <li>
                 <a href="<?= base_url('laporan/laporantransaksi'); ?>">
                     <i class="bi bi-clipboard-data"></i>
@@ -59,7 +63,7 @@
             </li>
         <?php endif; ?>
 
-        <!-- PETUGAS -->
+        <!-- MENU PETUGAS -->
         <?php if ($this->session->userdata('role') == 'petugas'): ?>
             <li>
                 <a href="<?= base_url('transaksi/barangmasuk'); ?>">
@@ -74,6 +78,7 @@
                     <span class="menu-text">Barang Keluar</span>
                 </a>
             </li>
+
             <li>
                 <a href="<?= base_url('laporan/laporantransaksi'); ?>">
                     <i class="bi bi-clipboard-data"></i>
@@ -84,11 +89,12 @@
 
     </ul>
 
-    <!-- FOOTER -->
+    <!-- LOGOUT -->
     <div class="sidebar-footer">
         <a href="<?= base_url('auth/logout'); ?>" class="logout-btn">
             <i class="bi bi-box-arrow-right"></i>
             Logout
         </a>
     </div>
+
 </aside>

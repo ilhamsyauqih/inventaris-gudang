@@ -1,7 +1,8 @@
+<!-- WRAPPER HALAMAN BARANG KELUAR -->
 <div class="content-wrapper krem-bg">
     <div class="container-fluid py-4 px-lg-4">
 
-        <!-- Header -->
+        <!-- HEADER HALAMAN + TOMBOL INPUT -->
         <div class="d-flex justify-content-between align-items-center mb-5 animate__animated animate__fadeInDown">
             <div>
                 <h2 class="section-title mb-1">📤 Barang Keluar</h2>
@@ -12,15 +13,17 @@
             </a>
         </div>
 
-        <!-- CARD LIST -->
+        <!-- DAFTAR DATA BARANG KELUAR -->
         <div class="row g-3">
             <?php foreach ($barang_keluar as $bk): ?>
                 <div class="col-12">
+
+                    <!-- CARD DATA -->
                     <div class="card card-barang border-0 shadow-sm animate__animated animate__fadeInUp">
                         <div class="card-body p-4">
                             <div class="row align-items-center">
 
-                                <!-- Icon & Title -->
+                                <!-- ICON + NAMA BARANG -->
                                 <div class="col-md-4 mb-3 mb-md-0 d-flex align-items-center gap-3">
                                     <div class="icon-box bg-warning-soft text-warning rounded-circle flex-shrink-0">
                                         <i class="bi bi-arrow-up-circle fs-5"></i>
@@ -28,28 +31,33 @@
                                     <div>
                                         <h6 class="barang-title mb-1"><?= $bk->nama_barang ?></h6>
                                         <small class="text-muted">
-                                            <i class="bi bi-building me-1"></i>Tujuan: <?= $bk->tujuan ?>
+                                            <i class="bi bi-building me-1"></i>
+                                            Tujuan: <?= $bk->tujuan ?>
                                         </small>
                                     </div>
                                 </div>
 
-                                <!-- Details -->
+                                <!-- DETAIL JUMLAH & TANGGAL -->
                                 <div class="col-md-6 mb-3 mb-md-0">
                                     <div class="d-flex gap-4">
                                         <div>
-                                            <small
-                                                class="d-block text-muted mb-1 text-uppercase fs-7 fw-bold">Jumlah</small>
+                                            <small class="d-block text-muted mb-1 text-uppercase fs-7 fw-bold">
+                                                Jumlah
+                                            </small>
                                             <span class="fs-5 fw-bold text-dark"><?= $bk->jumlah ?></span>
                                         </div>
                                         <div>
-                                            <small
-                                                class="d-block text-muted mb-1 text-uppercase fs-7 fw-bold">Tanggal</small>
-                                            <span class="fw-medium"><?= date('d M Y', strtotime($bk->tanggal)) ?></span>
+                                            <small class="d-block text-muted mb-1 text-uppercase fs-7 fw-bold">
+                                                Tanggal
+                                            </small>
+                                            <span class="fw-medium">
+                                                <?= date('d M Y', strtotime($bk->tanggal)) ?>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Badge -->
+                                <!-- LABEL JENIS TRANSAKSI -->
                                 <div class="col-md-2 text-md-end">
                                     <span class="badge bg-warning-soft text-warning rounded-pill px-3 py-2">
                                         Barang Keluar
@@ -59,6 +67,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             <?php endforeach; ?>
         </div>
@@ -66,15 +75,19 @@
     </div>
 </div>
 
+<!-- STYLE TAMBAHAN -->
 <style>
+    /* Font kecil untuk label */
     .fs-7 {
         font-size: 0.75rem;
     }
 
+    /* Warna lembut untuk status barang keluar */
     .bg-warning-soft {
         background-color: rgba(255, 193, 7, 0.1);
     }
 
+    /* Ukuran dan posisi icon */
     .icon-box {
         width: 48px;
         height: 48px;
