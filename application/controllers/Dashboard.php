@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Dashboard extends CI_Controller
 {
 
+    // Constructor: load model dashboard dan cek status login
     public function __construct()
     {
         parent::__construct();
@@ -15,6 +16,7 @@ class Dashboard extends CI_Controller
         }
     }
 
+    // Halaman utama dashboard (tampilkan data & view sesuai role)
     public function index()
     {
         $data['title'] = 'Dashboard';
@@ -28,7 +30,6 @@ class Dashboard extends CI_Controller
 
         $this->load->view('templates/header', $data);
 
-        // ================= ROLE CHECK =================
         if ($role == 'admin') {
             $this->load->view('dashboard/admin', $data);
         } else {

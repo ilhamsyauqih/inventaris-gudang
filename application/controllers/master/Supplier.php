@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Supplier extends CI_Controller {
 
+    // Constructor
+    // Cek login, cek role admin, dan load model supplier
     public function __construct()
     {
         parent::__construct();
@@ -11,7 +13,7 @@ class Supplier extends CI_Controller {
             redirect('auth/login');
         }
 
-        // Hanya ADMIN
+        // Akses khusus admin
         if ($this->session->userdata('role') != 'admin') {
             show_error('Akses ditolak', 403);
         }
@@ -19,6 +21,7 @@ class Supplier extends CI_Controller {
         $this->load->model('master/Supplier_model');
     }
 
+    // Menampilkan daftar semua supplier
     public function index()
     {
         $data['title']    = 'Data Supplier';
@@ -29,6 +32,7 @@ class Supplier extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    // Menampilkan form tambah supplier
     public function tambah()
     {
         $data['title'] = 'Tambah Supplier';
@@ -38,6 +42,7 @@ class Supplier extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    // Menyimpan data supplier baru
     public function simpan()
     {
         $data = [
@@ -49,28 +54,31 @@ class Supplier extends CI_Controller {
         $this->Supplier_model->insert($data);
         redirect('master/supplier');
     }
+
+    // Menampilkan form edit supplier
     public function edit($id)
-{
-    $data['title']    = 'Edit Supplier';
-    $data['supplier'] = $this->Supplier_model->get_by_id($id);
+    {
+        $data['title']    = 'Edit Supplier';
+        $data['supplier'] = $this->Supplier_model->get_by_id($id);
 
-    $this->load->view('templates/header', $data);
-    $this->load->view('master/supplier/edit', $data);
-    $this->load->view('templates/footer');
-}
+        $this->load->view('templates/header', $data);
+        $this->load->view('master/supplier/edit', $data);
+        $this->load->view('templates/footer');
+    }
 
-public function update()
-{
-    $id = $this->input->post('id_supplier');
+    // Menyimpan perubahan data supplier
+    public function update()
+    {
+        $id = $this->input->post('id_supplier');
 
-    $data = [
-        'nama_supplier' => $this->input->post('nama_supplier'),
-        'alamat'        => $this->input->post('alamat'),
-        'telepon'       => $this->input->post('telepon')
-    ];
+        $data = [
+            'nama_supplier' => $this->input->post('nama_supplier'),
+            'alamat'        => $this->input->post('alamat'),
+            'telepon'       => $this->input->post('telepon')
+        ];
 
-    $this->Supplier_model->update($id, $data);
-    redirect('master/supplier');
-}
+        $this->Supplier_model->update($id, $data);
+        redirect('master/supplier');
+    }
 
 }

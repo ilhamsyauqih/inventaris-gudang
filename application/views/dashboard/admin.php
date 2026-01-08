@@ -1,7 +1,8 @@
+<!-- Wrapper utama dashboard admin -->
 <div class="content-wrapper krem-bg">
     <div class="container-fluid py-4 px-lg-4">
 
-        <!-- HEADER -->
+        <!-- Header dashboard -->
         <div class="mb-5 animate__animated animate__fadeInDown">
             <h2 class="section-title mb-1">📊 Dashboard Admin</h2>
             <p class="text-muted mb-0">
@@ -9,9 +10,10 @@
             </p>
         </div>
 
-        <!-- STATISTIK -->
+        <!-- ===== STATISTIK UTAMA ===== -->
         <div class="row g-4 mb-5">
-            <!-- Total Barang -->
+
+            <!-- Statistik total barang -->
             <div class="col-xl-3 col-md-6">
                 <a href="<?= base_url('master/barang'); ?>" class="text-decoration-none">
                     <div class="card card-barang h-100 border-0 shadow-sm animate__animated animate__fadeInUp"
@@ -30,7 +32,7 @@
                 </a>
             </div>
 
-            <!-- Total Stok -->
+            <!-- Statistik total stok -->
             <div class="col-xl-3 col-md-6">
                 <a href="<?= base_url('laporan/laporanstok'); ?>" class="text-decoration-none">
                     <div class="card card-barang h-100 border-0 shadow-sm animate__animated animate__fadeInUp"
@@ -49,7 +51,7 @@
                 </a>
             </div>
 
-            <!-- Barang Masuk -->
+            <!-- Statistik barang masuk -->
             <div class="col-xl-3 col-md-6">
                 <a href="<?= base_url('laporan/laporantransaksi'); ?>" class="text-decoration-none">
                     <div class="card card-barang h-100 border-0 shadow-sm animate__animated animate__fadeInUp"
@@ -68,7 +70,7 @@
                 </a>
             </div>
 
-            <!-- Barang Keluar -->
+            <!-- Statistik barang keluar -->
             <div class="col-xl-3 col-md-6">
                 <a href="<?= base_url('laporan/laporantransaksi'); ?>" class="text-decoration-none">
                     <div class="card card-barang h-100 border-0 shadow-sm animate__animated animate__fadeInUp"
@@ -86,11 +88,13 @@
                     </div>
                 </a>
             </div>
+
         </div>
 
-        <!-- QUICK ACTION & INFO -->
+        <!-- ===== AKSES CEPAT & INFO ===== -->
         <div class="row g-4">
-            <!-- Quick Actions -->
+
+            <!-- Akses cepat admin -->
             <div class="col-lg-8">
                 <div class="card border-0 shadow-sm rounded-4 animate__animated animate__fadeInUp"
                     style="animation-delay: 0.5s;">
@@ -126,16 +130,18 @@
                 </div>
             </div>
 
-            <!-- System Info -->
+            <!-- Informasi sistem -->
             <div class="col-lg-4">
                 <div class="card bg-krem text-white border-0 shadow-sm rounded-4 h-100 animate__animated animate__fadeInUp"
                     style="animation-delay: 0.6s;">
                     <div class="card-body p-4 position-relative overflow-hidden">
-                        <!-- Decorative Circle -->
                         <div class="position-absolute top-0 end-0 translate-middle p-5 rounded-circle bg-white opacity-10"
                             style="margin-top: -20px; margin-right: -20px;"></div>
 
-                        <h5 class="fw-bold mb-3 text-white"><i class="bi bi-info-circle me-2"></i>Informasi Sistem</h5>
+                        <h5 class="fw-bold mb-3 text-white">
+                            <i class="bi bi-info-circle me-2"></i>Informasi Sistem
+                        </h5>
+
                         <p class="mb-0 opacity-75 small text-white" style="line-height: 1.8;">
                             Sistem ini digunakan untuk mengelola inventaris bahan percetakan secara terstruktur.
                             Pantau stok, kelola supplier, dan catat transaksi dengan mudah.
@@ -147,29 +153,18 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
     </div>
 </div>
 
+<!-- Style tambahan khusus dashboard -->
 <style>
-    /* Additional inline styles for dashboard-specific micro-interactions if needed, 
-   though most are handled by global classes */
-    .bg-primary-soft {
-        background-color: rgba(13, 110, 253, 0.1);
-    }
-
-    .bg-success-soft {
-        background-color: rgba(25, 135, 84, 0.1);
-    }
-
-    .bg-info-soft {
-        background-color: rgba(13, 202, 240, 0.1);
-    }
-
-    .bg-warning-soft {
-        background-color: rgba(255, 193, 7, 0.1);
-    }
+    .bg-primary-soft { background-color: rgba(13, 110, 253, 0.1); }
+    .bg-success-soft { background-color: rgba(25, 135, 84, 0.1); }
+    .bg-info-soft    { background-color: rgba(13, 202, 240, 0.1); }
+    .bg-warning-soft { background-color: rgba(255, 193, 7, 0.1); }
 
     .icon-box {
         width: 48px;

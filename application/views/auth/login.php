@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+
     <meta charset="UTF-8">
     <title>Login | Inventaris Percetakan</title>
 
-    <!-- Bootstrap -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Style khusus halaman login -->
     <style>
         body {
             min-height: 100vh;
@@ -72,27 +75,27 @@
 </head>
 <body>
 
+    <!-- Container utama halaman login -->
     <div class="login-card">
 
+        <!-- Judul halaman -->
         <h3 class="login-title">LOGIN</h3>
 
-        <!-- FORM LOGIN (FUNGSI TETAP) -->
+        <!-- Form login: kirim data ke Auth controller -->
         <form action="<?= base_url('auth/login'); ?>" method="post">
 
+            <!-- Input data login -->
             <div class="mb-3">
                 <label class="form-label">Username</label>
-                <input type="text" name="username"
-                       class="form-control" required>
+                <input type="text" name="username" class="form-control" required>
             </div>
-
-            
 
             <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input type="password" name="password"
-                       class="form-control" required>
+                <input type="password" name="password" class="form-control" required>
             </div>
 
+            <!-- Opsi tambahan -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="remember">
@@ -102,15 +105,19 @@
                 </div>
                 <a href="#" class="forgot">Forgot password?</a>
             </div>
-<div class="text-center mt-3 mb-3">
-                </button>
- <a href="<?= base_url('auth/register'); ?>" class="forgot">
-        Belum punya akun? Daftar
-    </a>
-</div>
+
+            <!-- Arahkan ke halaman register -->
+            <div class="text-center mt-3 mb-3">
+                <a href="<?= base_url('auth/register'); ?>" class="forgot">
+                    Belum punya akun? Daftar
+                </a>
+            </div>
+
+            <!-- Tombol submit login -->
             <button class="btn btn-login w-100">
                 SIGN IN
-            
+            </button>
+
         </form>
 
     </div>
