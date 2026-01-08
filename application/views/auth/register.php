@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+
     <meta charset="UTF-8">
     <title>Daftar Akun</title>
 
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Style khusus halaman register -->
     <style>
         body {
             min-height: 100vh;
@@ -36,18 +40,23 @@
 </head>
 <body>
 
+<!-- Container utama halaman register -->
 <div class="card-glass">
 
+    <!-- Judul halaman -->
     <h3 class="title">DAFTAR AKUN</h3>
 
+    <!-- Notifikasi error jika registrasi gagal -->
     <?php if ($this->session->flashdata('error')): ?>
         <div class="alert alert-danger">
             <?= $this->session->flashdata('error'); ?>
         </div>
     <?php endif; ?>
 
+    <!-- Form register: kirim data ke Auth controller -->
     <form action="<?= base_url('auth/save_register'); ?>" method="post">
 
+        <!-- Input data user -->
         <div class="mb-3">
             <label>Nama Lengkap</label>
             <input type="text" name="nama" class="form-control" required>
@@ -63,6 +72,7 @@
             <input type="password" name="password" class="form-control" required>
         </div>
 
+        <!-- Pilih role user -->
         <div class="mb-4">
             <label>Role</label>
             <select name="role" class="form-select" required>
@@ -72,10 +82,12 @@
             </select>
         </div>
 
+        <!-- Tombol untuk submit pendaftaran -->
         <button class="btn btn-success w-100 mb-3">
             Daftar
         </button>
 
+        <!-- Arahkan kembali ke halaman login -->
         <div class="text-center">
             <a href="<?= base_url('auth/login'); ?>" class="text-muted">
                 Sudah punya akun? Login
