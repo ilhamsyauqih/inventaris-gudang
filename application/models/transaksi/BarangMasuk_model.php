@@ -1,27 +1,34 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class BarangMasuk_model extends CI_Model {
+/*
+| Model BarangKeluar
+| Mengelola data dan transaksi barang keluar
+*/
+class BarangKeluar_model extends CI_Model {
 
+    // Mengambil seluruh data barang keluar
     public function get_all()
     {
         $this->db->select('
-            barang_masuk.*,
-            barang.nama_barang,
-            supplier.nama_supplier
+            barang_keluar.*,
+            barang.nama_barang
         ');
-        $this->db->from('barang_masuk');
-        $this->db->join('barang', 'barang.id_barang = barang_masuk.id_barang');
-        $this->db->join('supplier', 'supplier.id_supplier = barang_masuk.id_supplier');
+        $this->db->from('barang_keluar');
+        $this->db->join('barang', 'barang.id_barang = barang_keluar.id_barang');
         $this->db->order_by('tanggal', 'DESC');
+
         return $this->db->get()->result();
     }
 
+    // Menyimpan transaksi barang keluar
     public function insert($data)
     {
-        $this->db->insert('barang_masuk', $data);
+        // Simpan data ke tabel barang_keluar
+        $this->db->insert('barang_keluar', $data);
 
-        $this->db->set('stok', 'stok + '.$data['jumlah'], FALSE);
+        // Kurangi stok barang sesuai jumlah keluar
+        $this->db->set('stok', 'stok - '.$data['jumlah'], FALSE);
         $this->db->where('id_barang', $data['id_barang']);
         $this->db->update('barang');
     }

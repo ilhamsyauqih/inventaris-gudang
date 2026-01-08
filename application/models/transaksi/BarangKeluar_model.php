@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class BarangKeluar_model extends CI_Model {
 
+    // Mengambil seluruh data barang keluar
     public function get_all()
     {
         $this->db->select('
@@ -16,12 +17,13 @@ class BarangKeluar_model extends CI_Model {
         return $this->db->get()->result();
     }
 
+    // Menyimpan data barang keluar dan mengurangi stok
     public function insert($data)
     {
-        // simpan transaksi keluar
+        // Simpan data barang keluar
         $this->db->insert('barang_keluar', $data);
 
-        // kurangi stok barang
+        // Update stok barang (dikurangi sesuai jumlah keluar)
         $this->db->set('stok', 'stok - '.$data['jumlah'], FALSE);
         $this->db->where('id_barang', $data['id_barang']);
         $this->db->update('barang');
