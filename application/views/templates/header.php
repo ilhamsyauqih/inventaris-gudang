@@ -12,14 +12,20 @@
     <style>
         body {
             background-color: #f7f2e8;
+            background-image: url('<?= base_url("assets/img/pattern.png"); ?>');
+            background-repeat: repeat;
+            background-size: 400px;
+            background-blend-mode: multiply;
             font-family: 'Inter', 'Segoe UI', sans-serif;
         }
 
         .krem-bg {
+            border-radius: 15px;
             background-color: #f7f1e3;
         }
 
         .bg-krem {
+            border-radius: 15px;
             background-color: #e6dcc8;
         }
 
@@ -31,7 +37,7 @@
         .layout {
             display: flex;
             min-height: 100vh;
-            background: #f7f1e3;
+            background: transparent;
         }
 
         .main-content {
@@ -40,7 +46,7 @@
             transition: all 0.3s ease;
             min-width: 0;
             overflow-x: hidden;
-            background-color: #f7f1e3;
+            background-color: transparent;
             min-height: 100vh;
         }
 
