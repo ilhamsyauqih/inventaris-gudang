@@ -4,7 +4,7 @@
         <!-- ===== HEADER DASHBOARD ===== -->
         <div class="mb-5 animate__animated animate__fadeInDown">
             <!-- Judul dashboard petugas -->
-            <h2 class="section-title mb-1">👨‍💼 Dashboard Petugas</h2>
+            <h2 class="section-title mb-1">Dashboard Petugas</h2>
 
             <p class="text-muted mb-0">
                 Informasi operasional gudang percetakan
@@ -149,7 +149,6 @@
 
 
 <style>
-
     .bg-primary-soft {
         background-color: rgba(13, 110, 253, 0.1);
     }

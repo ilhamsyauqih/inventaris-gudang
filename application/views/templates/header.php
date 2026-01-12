@@ -57,10 +57,15 @@
             transition: width 0.3s ease;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
             padding: 20px 15px;
-            overflow: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            height: 100vh;
         }
 
         .sidebar-krem.collapsed {
@@ -421,14 +426,83 @@
                 transform: scale(1);
             }
         }
+
+        /* ===== RESPONSIVE ===== */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1040;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .sidebar-overlay.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: #6f5e4b;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-krem {
+                position: fixed;
+                left: -280px;
+                height: 100vh;
+                z-index: 1050;
+                transition: left 0.3s ease;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .sidebar-krem.show {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+
+            .content-wrapper .container-fluid {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
     </style>
 
 </head>
 
 <body class="krem-bg">
 
+    <!-- Overlay untuk mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
     <div class="layout" id="layout">
 
         <?php $this->load->view('templates/sidebar'); ?>
 
         <div class="main-content" id="mainContent">
+
+            <!-- Mobile Header -->
+            <div class="d-md-none d-flex align-items-center mb-3">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                <h5 class="m-0 fw-bold text-krem">Percetakan</h5>
+            </div>

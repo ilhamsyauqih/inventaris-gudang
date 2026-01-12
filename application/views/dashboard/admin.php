@@ -4,7 +4,7 @@
 
         <!-- Header dashboard -->
         <div class="mb-5 animate__animated animate__fadeInDown">
-            <h2 class="section-title mb-1">📊 Dashboard Admin</h2>
+            <h2 class="section-title mb-1">Dashboard Admin</h2>
             <p class="text-muted mb-0">
                 Ringkasan inventaris gudang percetakan
             </p>
@@ -132,23 +132,23 @@
 
             <!-- Informasi sistem -->
             <div class="col-lg-4">
-                <div class="card bg-krem text-white border-0 shadow-sm rounded-4 h-100 animate__animated animate__fadeInUp"
+                <div class="card bg-krem text-krem border-0 shadow-sm rounded-4 h-100 animate__animated animate__fadeInUp"
                     style="animation-delay: 0.6s;">
                     <div class="card-body p-4 position-relative overflow-hidden">
-                        <div class="position-absolute top-0 end-0 translate-middle p-5 rounded-circle bg-white opacity-10"
+                        <div class="position-absolute top-0 end-0 translate-middle p-5 rounded-circle bg-white opacity-25"
                             style="margin-top: -20px; margin-right: -20px;"></div>
 
-                        <h5 class="fw-bold mb-3 text-white">
+                        <h5 class="fw-bold mb-3 text-krem">
                             <i class="bi bi-info-circle me-2"></i>Informasi Sistem
                         </h5>
 
-                        <p class="mb-0 opacity-75 small text-white" style="line-height: 1.8;">
+                        <p class="mb-0 opacity-75 small text-krem" style="line-height: 1.8;">
                             Sistem ini digunakan untuk mengelola inventaris bahan percetakan secara terstruktur.
                             Pantau stok, kelola supplier, dan catat transaksi dengan mudah.
                         </p>
 
-                        <div class="mt-4 pt-3 border-top border-white border-opacity-25">
-                            <small class="opacity-50">Versi 1.0.0</small>
+                        <div class="mt-4 pt-3 border-top border-dark border-opacity-10">
+                            <small class="opacity-75">Versi 1.0.0</small>
                         </div>
                     </div>
                 </div>
@@ -161,10 +161,21 @@
 
 <!-- Style tambahan khusus dashboard -->
 <style>
-    .bg-primary-soft { background-color: rgba(13, 110, 253, 0.1); }
-    .bg-success-soft { background-color: rgba(25, 135, 84, 0.1); }
-    .bg-info-soft    { background-color: rgba(13, 202, 240, 0.1); }
-    .bg-warning-soft { background-color: rgba(255, 193, 7, 0.1); }
+    .bg-primary-soft {
+        background-color: rgba(13, 110, 253, 0.1);
+    }
+
+    .bg-success-soft {
+        background-color: rgba(25, 135, 84, 0.1);
+    }
+
+    .bg-info-soft {
+        background-color: rgba(13, 202, 240, 0.1);
+    }
+
+    .bg-warning-soft {
+        background-color: rgba(255, 193, 7, 0.1);
+    }
 
     .icon-box {
         width: 48px;

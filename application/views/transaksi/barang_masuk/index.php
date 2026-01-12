@@ -5,7 +5,7 @@
         <!-- HEADER HALAMAN + TOMBOL INPUT -->
         <div class="d-flex justify-content-between align-items-center mb-5 animate__animated animate__fadeInDown">
             <div>
-                <h2 class="section-title mb-1">📥 Barang Masuk</h2>
+                <h2 class="section-title mb-1">Barang Masuk</h2>
                 <p class="text-muted mb-0">Riwayat penerimaan barang dari supplier</p>
             </div>
             <a href="<?= base_url('transaksi/barangmasuk/tambah'); ?>" class="btn btn-primary btn-pill shadow-sm">
