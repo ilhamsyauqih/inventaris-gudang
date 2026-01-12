@@ -60,4 +60,5 @@ $route['transaksi/barangkeluar/tambah'] = 'transaksi/BarangKeluar/tambah';
 $route['transaksi/barangkeluar/simpan'] = 'transaksi/BarangKeluar/simpan';
 $route['laporan/laporanstok'] = 'laporan/LaporanStok/index';
 $route['laporan/laporantransaksi'] = 'laporan/LaporanTransaksi/index';
+$route['laporan/laporantransaksi/cetak'] = 'laporan/LaporanTransaksi/cetak';
 
