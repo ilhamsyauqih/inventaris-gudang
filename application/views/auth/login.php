@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 
 
     <meta charset="UTF-8">
     <title>Login | Inventaris Percetakan</title>
 
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Style khusus halaman login -->
     <style>
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #f3ead7, #e8dcc4);
+            background: url('<?= base_url('assets/img/bg-auth.png'); ?>') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -28,7 +30,7 @@
             background: rgba(255, 255, 255, 0.55);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .login-title {
@@ -42,7 +44,7 @@
         .form-control {
             border-radius: 12px;
             padding: 12px;
-            background-color: rgba(255,255,255,0.85);
+            background-color: rgba(255, 255, 255, 0.85);
         }
 
         .btn-login {
@@ -73,6 +75,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Container utama halaman login -->
@@ -123,4 +126,5 @@
     </div>
 
 </body>
+
 </html>

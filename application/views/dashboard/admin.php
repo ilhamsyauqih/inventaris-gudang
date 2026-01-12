@@ -99,7 +99,7 @@
                 <div class="card border-0 shadow-sm rounded-4 animate__animated animate__fadeInUp"
                     style="animation-delay: 0.5s;">
                     <div class="card-body p-4">
-                        <h5 class="fw-bold text-krem mb-4">⚡ Akses Cepat</h5>
+                        <h5 class="fw-bold text-krem mb-4">Akses Cepat</h5>
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <a href="<?= base_url('master/barang/tambah'); ?>"

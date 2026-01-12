@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $title ?? 'Dashboard'; ?> | Inventaris Percetakan</title>
+    <link rel="icon" href="<?= base_url('assets/img/favicon.png'); ?>" type="image/x-icon">
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -98,6 +99,12 @@
             display: block;
             font-size: 12px;
             color: #777;
+        }
+
+        .sidebar-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
         }
 
         .sidebar-user {
