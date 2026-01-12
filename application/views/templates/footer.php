@@ -29,7 +29,7 @@
                     previewImage.src = imageUrl;
                     previewBox.style.display = 'flex';
                     previewBox.style.animation = 'fadeInScale 0.35s ease';
-                } 
+                }
                 // Jika tidak ada gambar, sembunyikan preview
                 else {
                     previewBox.style.display = 'none';
@@ -38,7 +38,27 @@
             }
         });
     }
+
+    // ===== MOBILE SIDEBAR TOGGLE =====
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    if (menuToggle && sidebar && sidebarOverlay) {
+        // Buka sidebar
+        menuToggle.addEventListener('click', function () {
+            sidebar.classList.add('show');
+            sidebarOverlay.classList.add('show');
+        });
+
+        // Tutup sidebar (klik overlay)
+        sidebarOverlay.addEventListener('click', function () {
+            sidebar.classList.remove('show');
+            sidebarOverlay.classList.remove('show');
+        });
+    }
 </script>
 
 </body>
+
 </html>

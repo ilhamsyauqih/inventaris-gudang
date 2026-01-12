@@ -5,7 +5,7 @@
         <!-- HEADER HALAMAN + TOMBOL INPUT -->
         <div class="d-flex justify-content-between align-items-center mb-5 animate__animated animate__fadeInDown">
             <div>
-                <h2 class="section-title mb-1">📤 Barang Keluar</h2>
+                <h2 class="section-title mb-1">Barang Keluar</h2>
                 <p class="text-muted mb-0">Riwayat barang keluar dari gudang</p>
             </div>
             <a href="<?= base_url('transaksi/barangkeluar/tambah'); ?>" class="btn btn-primary btn-pill shadow-sm">

@@ -26,7 +26,8 @@
 
         <!-- DASHBOARD -->
         <li>
-            <a href="<?= base_url('dashboard'); ?>">
+            <a href="<?= base_url('dashboard'); ?>"
+                class="<?= $this->uri->segment(1) == 'dashboard' || $this->uri->segment(1) == '' ? 'active' : '' ?>">
                 <i class="bi bi-speedometer2"></i>
                 <span class="menu-text">Dashboard</span>
             </a>
@@ -35,28 +36,32 @@
         <!-- MENU ADMIN -->
         <?php if ($this->session->userdata('role') == 'admin'): ?>
             <li>
-                <a href="<?= base_url('master/barang'); ?>">
+                <a href="<?= base_url('master/barang'); ?>"
+                    class="<?= $this->uri->segment(1) == 'master' && $this->uri->segment(2) == 'barang' ? 'active' : '' ?>">
                     <i class="bi bi-box-seam"></i>
                     <span class="menu-text">Data Barang</span>
                 </a>
             </li>
 
             <li>
-                <a href="<?= base_url('master/supplier'); ?>">
+                <a href="<?= base_url('master/supplier'); ?>"
+                    class="<?= $this->uri->segment(1) == 'master' && $this->uri->segment(2) == 'supplier' ? 'active' : '' ?>">
                     <i class="bi bi-truck"></i>
                     <span class="menu-text">Supplier</span>
                 </a>
             </li>
 
             <li>
-                <a href="<?= base_url('laporan/laporanstok'); ?>">
+                <a href="<?= base_url('laporan/laporanstok'); ?>"
+                    class="<?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'laporanstok' ? 'active' : '' ?>">
                     <i class="bi bi-clipboard-data"></i>
                     <span class="menu-text">Laporan Stok</span>
                 </a>
             </li>
 
             <li>
-                <a href="<?= base_url('laporan/laporantransaksi'); ?>">
+                <a href="<?= base_url('laporan/laporantransaksi'); ?>"
+                    class="<?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'laporantransaksi' ? 'active' : '' ?>">
                     <i class="bi bi-clipboard-data"></i>
                     <span class="menu-text">Laporan Transaksi</span>
                 </a>
@@ -66,21 +71,24 @@
         <!-- MENU PETUGAS -->
         <?php if ($this->session->userdata('role') == 'petugas'): ?>
             <li>
-                <a href="<?= base_url('transaksi/barangmasuk'); ?>">
+                <a href="<?= base_url('transaksi/barangmasuk'); ?>"
+                    class="<?= $this->uri->segment(1) == 'transaksi' && $this->uri->segment(2) == 'barangmasuk' ? 'active' : '' ?>">
                     <i class="bi bi-arrow-down-square"></i>
                     <span class="menu-text">Barang Masuk</span>
                 </a>
             </li>
 
             <li>
-                <a href="<?= base_url('transaksi/barangkeluar'); ?>">
+                <a href="<?= base_url('transaksi/barangkeluar'); ?>"
+                    class="<?= $this->uri->segment(1) == 'transaksi' && $this->uri->segment(2) == 'barangkeluar' ? 'active' : '' ?>">
                     <i class="bi bi-arrow-up-square"></i>
                     <span class="menu-text">Barang Keluar</span>
                 </a>
             </li>
 
             <li>
-                <a href="<?= base_url('laporan/laporantransaksi'); ?>">
+                <a href="<?= base_url('laporan/laporantransaksi'); ?>"
+                    class="<?= $this->uri->segment(1) == 'laporan' && $this->uri->segment(2) == 'laporantransaksi' ? 'active' : '' ?>">
                     <i class="bi bi-clipboard-data"></i>
                     <span class="menu-text">Laporan Transaksi</span>
                 </a>

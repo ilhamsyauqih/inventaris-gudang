@@ -4,7 +4,7 @@
 
         <!-- HEADER JUDUL HALAMAN -->
         <div class="mb-5 animate__animated animate__fadeInDown">
-            <h2 class="section-title mb-1">📈 Laporan Transaksi</h2>
+            <h2 class="section-title mb-1">Laporan Transaksi</h2>
             <p class="text-muted mb-0">
                 Riwayat transaksi barang masuk dan barang keluar
             </p>
@@ -32,7 +32,8 @@
 
                         <!-- ISI DATA TRANSAKSI -->
                         <tbody>
-                            <?php $no = 1; foreach ($transaksi as $t): ?>
+                            <?php $no = 1;
+                            foreach ($transaksi as $t): ?>
                                 <tr>
                                     <td class="px-4 py-3 text-muted"><?= $no++; ?></td>
 

@@ -4,7 +4,7 @@
 
         <!-- HEADER JUDUL HALAMAN -->
         <div class="mb-5 animate__animated animate__fadeInDown">
-            <h2 class="section-title mb-1">📋 Laporan Stok Barang</h2>
+            <h2 class="section-title mb-1">Laporan Stok Barang</h2>
             <p class="text-muted mb-0">
                 Data stok terkini seluruh barang di gudang percetakan
             </p>
@@ -32,7 +32,8 @@
 
                         <!-- ISI DATA STOK -->
                         <tbody>
-                            <?php $no = 1; foreach ($stok as $s): ?>
+                            <?php $no = 1;
+                            foreach ($stok as $s): ?>
                                 <tr>
                                     <td class="px-4 py-3 text-muted"><?= $no++; ?></td>
                                     <td class="px-4 py-3 fw-bold text-krem"><?= $s->kode_barang; ?></td>
