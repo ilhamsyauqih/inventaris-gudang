@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class LaporanStok extends CI_Controller {
+class LaporanStok extends CI_Controller
+{
 
     public function __construct()
     {
@@ -17,11 +18,18 @@ class LaporanStok extends CI_Controller {
 
     public function index()
     {
-        $data['title']  = 'Laporan Stok';
+        $data['title'] = 'Laporan Stok';
         $data['stok'] = $this->LaporanStok_model->get_all();
 
         $this->load->view('templates/header', $data);
         $this->load->view('laporan/stok/index', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function cetak()
+    {
+        $data['title'] = 'Laporan Stok';
+        $data['stok'] = $this->LaporanStok_model->get_all();
+        $this->load->view('laporan/stok/cetak', $data);
     }
 }
