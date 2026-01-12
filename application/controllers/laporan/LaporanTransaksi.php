@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class LaporanTransaksi extends CI_Controller {
+class LaporanTransaksi extends CI_Controller
+{
 
     public function __construct()
     {
@@ -22,5 +23,11 @@ class LaporanTransaksi extends CI_Controller {
         $this->load->view('templates/header');
         $this->load->view('laporan/transaksi/index', $data);
         $this->load->view('templates/footer');
+    }
+
+    public function cetak()
+    {
+        $data['transaksi'] = $this->LaporanTransaksi_model->get_all();
+        $this->load->view('laporan/transaksi/cetak', $data);
     }
 }
