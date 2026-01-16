@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Barang extends CI_Controller {
 
-    // Constructor
     // Cek login, cek role admin, load model dan library upload
     public function __construct()
     {

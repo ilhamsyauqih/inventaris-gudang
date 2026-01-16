@@ -1,8 +1,6 @@
-<!-- Wrapper utama dashboard admin -->
 <div class="content-wrapper krem-bg">
     <div class="container-fluid py-4 px-lg-4">
 
-        <!-- Header dashboard -->
         <div class="mb-5 animate__animated animate__fadeInDown">
             <h2 class="section-title mb-1">Dashboard Admin</h2>
             <p class="text-muted mb-0">
@@ -10,7 +8,6 @@
             </p>
         </div>
 
-        <!-- ===== STATISTIK UTAMA ===== -->
         <div class="row g-4 mb-5">
 
             <!-- Statistik total barang -->
@@ -91,7 +88,6 @@
 
         </div>
 
-        <!-- ===== AKSES CEPAT & INFO ===== -->
         <div class="row g-4">
 
             <!-- Akses cepat admin -->
@@ -159,7 +155,6 @@
     </div>
 </div>
 
-<!-- Style tambahan khusus dashboard -->
 <style>
     .bg-primary-soft {
         background-color: rgba(13, 110, 253, 0.1);
