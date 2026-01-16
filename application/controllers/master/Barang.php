@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Barang extends CI_Controller {
+class Barang extends CI_Controller
+{
 
     // Constructor
     // Cek login, cek role admin, load model dan library upload
@@ -46,7 +47,7 @@ class Barang extends CI_Controller {
     // Menampilkan form tambah barang
     public function tambah()
     {
-        $data['title']    = 'Tambah Barang';
+        $data['title'] = 'Tambah Barang';
         $data['kategori'] = $this->Barang_model->get_kategori();
 
         $this->load->view('templates/header', $data);
@@ -61,10 +62,10 @@ class Barang extends CI_Controller {
 
         if (!empty($_FILES['gambar']['name'])) {
 
-            $config['upload_path']   = './assets/uploads/barang/';
+            $config['upload_path'] = './assets/uploads/barang/';
             $config['allowed_types'] = 'jpg|jpeg|png';
-            $config['max_size']      = 2048;
-            $config['file_name']     = time();
+            $config['max_size'] = 2048;
+            $config['file_name'] = time();
 
             $this->upload->initialize($config);
 
@@ -77,9 +78,9 @@ class Barang extends CI_Controller {
             'id_kategori' => $this->input->post('id_kategori'),
             'kode_barang' => $this->input->post('kode_barang'),
             'nama_barang' => $this->input->post('nama_barang'),
-            'satuan'      => $this->input->post('satuan'),
-            'stok'        => 0,
-            'gambar'      => $gambar
+            'satuan' => $this->input->post('satuan'),
+            'stok' => 0,
+            'gambar' => $gambar
         ];
 
         $this->Barang_model->insert($data);
@@ -89,8 +90,8 @@ class Barang extends CI_Controller {
     // Menampilkan form edit barang
     public function edit($id)
     {
-        $data['title']    = 'Edit Barang';
-        $data['barang']   = $this->Barang_model->get_by_id($id);
+        $data['title'] = 'Edit Barang';
+        $data['barang'] = $this->Barang_model->get_by_id($id);
         $data['kategori'] = $this->Barang_model->get_kategori();
 
         $this->load->view('templates/header', $data);
@@ -101,16 +102,16 @@ class Barang extends CI_Controller {
     // Update data barang (gambar diganti jika ada upload baru)
     public function update()
     {
-        $id     = $this->input->post('id_barang');
+        $id = $this->input->post('id_barang');
         $barang = $this->Barang_model->get_by_id($id);
         $gambar = $barang->gambar;
 
         if (!empty($_FILES['gambar']['name'])) {
 
-            $config['upload_path']   = './assets/uploads/barang/';
+            $config['upload_path'] = './assets/uploads/barang/';
             $config['allowed_types'] = 'jpg|jpeg|png';
-            $config['max_size']      = 2048;
-            $config['file_name']     = time();
+            $config['max_size'] = 2048;
+            $config['file_name'] = time();
 
             $this->upload->initialize($config);
 
@@ -123,8 +124,8 @@ class Barang extends CI_Controller {
             'id_kategori' => $this->input->post('id_kategori'),
             'kode_barang' => $this->input->post('kode_barang'),
             'nama_barang' => $this->input->post('nama_barang'),
-            'satuan'      => $this->input->post('satuan'),
-            'gambar'      => $gambar
+            'satuan' => $this->input->post('satuan'),
+            'gambar' => $gambar
         ];
 
         $this->Barang_model->update($id, $data);
@@ -140,8 +141,14 @@ class Barang extends CI_Controller {
             show_404();
         }
 
-        if ($barang->gambar && file_exists('./assets/uploads/barang/'.$barang->gambar)) {
-            unlink('./assets/uploads/barang/'.$barang->gambar);
+        if ($barang->gambar && file_exists('./assets/uploads/barang/' . $barang->gambar)) {
+            unlink('./assets/uploads/barang/' . $barang->gambar);
+        }
+
+        // Cek ketergantungan
+        if ($this->Barang_model->check_dependencies($id)) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Data tidak dapat dihapus karena sudah ada transaksi barang masuk/keluar!</div>');
+            redirect('master/barang');
         }
 
         $this->Barang_model->delete($id);

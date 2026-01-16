@@ -1,23 +1,18 @@
-<!-- WRAPPER HALAMAN INPUT BARANG MASUK -->
 <div class="content-wrapper krem-bg">
     <div class="container-fluid py-4">
 
-        <!-- JUDUL HALAMAN -->
         <h2 class="page-title centered mb-4">Input Barang Masuk</h2>
 
-        <!-- CARD FORM -->
         <div class="form-card">
             <form method="post">
 
                 <div class="form-grid">
 
-                    <!-- PILIH BARANG + PREVIEW GAMBAR -->
                     <div class="form-row">
                         <div class="icon-box">
                             <i class="bi bi-box-seam"></i>
                         </div>
 
-                        <!-- PREVIEW THUMBNAIL BARANG -->
                         <div id="barangPreview" class="thumbnail-preview" style="display:none;">
                             <img id="barangImage" src="" alt="Thumb">
                         </div>
@@ -36,7 +31,6 @@
                         </div>
                     </div>
 
-                    <!-- PILIH SUPPLIER -->
                     <div class="form-row">
                         <div class="icon-box">
                             <i class="bi bi-truck"></i>
@@ -54,7 +48,6 @@
                         </div>
                     </div>
 
-                    <!-- INPUT JUMLAH BARANG -->
                     <div class="form-row">
                         <div class="icon-box">
                             <i class="bi bi-hash"></i>
@@ -65,7 +58,6 @@
                         </div>
                     </div>
 
-                    <!-- INPUT TANGGAL BARANG MASUK -->
                     <div class="form-row">
                         <div class="icon-box">
                             <i class="bi bi-calendar-event"></i>
@@ -76,7 +68,6 @@
                         </div>
                     </div>
 
-                    <!-- INPUT KETERANGAN -->
                     <div class="form-row full mb-0">
                         <div class="icon-box">
                             <i class="bi bi-chat-left-text"></i>
@@ -87,7 +78,6 @@
                         </div>
                     </div>
 
-                    <!-- TOMBOL AKSI -->
                     <div class="form-action full mt-3">
                         <button type="submit" class="btn btn-success btn-pill px-4">
                             Simpan

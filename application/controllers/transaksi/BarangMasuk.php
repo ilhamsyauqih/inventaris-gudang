@@ -1,10 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*
-| Controller BarangMasuk
-| Mengelola transaksi barang masuk
-*/
 class BarangMasuk extends CI_Controller
 {
 
@@ -12,18 +8,15 @@ class BarangMasuk extends CI_Controller
     {
         parent::__construct();
 
-        // Cek login user
         if (!$this->session->userdata('logged_in')) {
             redirect('auth/login');
         }
 
-        // Load model yang dibutuhkan
         $this->load->model('transaksi/BarangMasuk_model');
         $this->load->model('master/Barang_model');
         $this->load->model('master/Supplier_model');
     }
 
-    // Menampilkan data barang masuk
     public function index()
     {
         $data['title'] = 'Barang Masuk';
@@ -34,10 +27,8 @@ class BarangMasuk extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    // Menampilkan form dan menyimpan data barang masuk
     public function tambah()
     {
-        // Jika form disubmit
         if ($this->input->post()) {
             $data_simpan = [
                 'id_barang'   => $this->input->post('id_barang'),
@@ -52,7 +43,6 @@ class BarangMasuk extends CI_Controller
             redirect('transaksi/barangmasuk');
         }
 
-        // Data untuk form
         $data['barang'] = $this->Barang_model->get_all();
         $data['supplier'] = $this->Supplier_model->get_all();
 
