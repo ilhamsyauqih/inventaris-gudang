@@ -5,9 +5,13 @@
 <aside class="sidebar-krem" id="sidebar">
 
     <!-- BRAND / LOGO -->
-    <div class="sidebar-brand">
-        <span class="fw-bold">Inventaris</span>
-        <small>Percetakan</small>
+    <!-- BRAND / LOGO -->
+    <div class="sidebar-brand d-flex align-items-center gap-3">
+        <img src="<?= base_url('assets/img/favicon.png'); ?>" alt="Logo" class="sidebar-logo">
+        <div>
+            <span class="fw-bold d-block">Inventaris</span>
+            <small class="text-muted">Percetakan</small>
+        </div>
     </div>
 
     <!-- INFO USER LOGIN -->

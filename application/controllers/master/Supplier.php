@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Supplier extends CI_Controller {
 
-    // Constructor
     // Cek login, cek role admin, dan load model supplier
     public function __construct()
     {

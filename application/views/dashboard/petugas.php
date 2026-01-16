@@ -112,7 +112,7 @@
             <div class="card-body p-4">
 
                 <!-- Judul quick action -->
-                <h5 class="fw-bold text-krem mb-4">⚡ Akses Cepat</h5>
+                <h5 class="fw-bold text-krem mb-4">Akses Cepat</h5>
 
                 <div class="row g-3">
 

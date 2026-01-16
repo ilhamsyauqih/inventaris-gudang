@@ -6,6 +6,21 @@
             <p class="text-muted mb-0">
                 Riwayat transaksi barang masuk dan barang keluar
             </p>
+        <!-- HEADER JUDUL HALAMAN -->
+        <!-- HEADER JUDUL HALAMAN -->
+        <div class="mb-5 animate__animated animate__fadeInDown d-flex justify-content-between align-items-end">
+            <div>
+                <h2 class="section-title mb-1">Laporan Transaksi</h2>
+                <p class="text-muted mb-0">
+                    Riwayat transaksi barang masuk dan barang keluar
+                </p>
+            </div>
+
+            <!-- Tombol Cetak / PDF -->
+            <a href="<?= base_url('laporan/laporantransaksi/cetak'); ?>" target="_blank"
+                class="btn btn-primary btn-pill shadow-sm">
+                <i class="bi bi-printer me-2"></i>Cetak PDF
+            </a>
         </div>
 
         <div class="card card-barang border-0 shadow-sm animate__animated animate__fadeInUp">

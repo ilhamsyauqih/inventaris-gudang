@@ -59,5 +59,7 @@ $route['transaksi/barangkeluar'] = 'transaksi/BarangKeluar/index';
 $route['transaksi/barangkeluar/tambah'] = 'transaksi/BarangKeluar/tambah';
 $route['transaksi/barangkeluar/simpan'] = 'transaksi/BarangKeluar/simpan';
 $route['laporan/laporanstok'] = 'laporan/LaporanStok/index';
+$route['laporan/laporanstok/cetak'] = 'laporan/LaporanStok/cetak';
 $route['laporan/laporantransaksi'] = 'laporan/LaporanTransaksi/index';
+$route['laporan/laporantransaksi/cetak'] = 'laporan/LaporanTransaksi/cetak';
 

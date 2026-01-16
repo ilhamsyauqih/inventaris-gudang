@@ -3,11 +3,19 @@
     <div class="container-fluid py-4 px-lg-4">
 
         <!-- HEADER JUDUL HALAMAN -->
-        <div class="mb-5 animate__animated animate__fadeInDown">
-            <h2 class="section-title mb-1">Laporan Stok Barang</h2>
-            <p class="text-muted mb-0">
-                Data stok terkini seluruh barang di gudang percetakan
-            </p>
+        <div class="mb-5 animate__animated animate__fadeInDown d-flex justify-content-between align-items-end">
+            <div>
+                <h2 class="section-title mb-1">Laporan Stok Barang</h2>
+                <p class="text-muted mb-0">
+                    Data stok terkini seluruh barang di gudang percetakan
+                </p>
+            </div>
+
+            <!-- Tombol Cetak / PDF -->
+            <a href="<?= base_url('laporan/laporanstok/cetak'); ?>" target="_blank"
+                class="btn btn-primary btn-pill shadow-sm">
+                <i class="bi bi-printer me-2"></i>Cetak PDF
+            </a>
         </div>
 
         <!-- CARD TABEL STOK -->
