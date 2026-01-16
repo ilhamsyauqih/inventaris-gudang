@@ -1,6 +1,18 @@
 <div class="content-wrapper krem-bg">
     <div class="container-fluid py-4 px-lg-4">
 
+        <!-- FLASH MESSAGE -->
+        <?php if ($this->session->flashdata('success')): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?= $this->session->flashdata('success'); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($this->session->flashdata('pesan')): ?>
+            <?= $this->session->flashdata('pesan'); ?>
+        <?php endif; ?>
+
         <!-- HEADER SECTION -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div>

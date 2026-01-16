@@ -1,12 +1,6 @@
 <div class="content-wrapper krem-bg">
     <div class="container-fluid py-4 px-lg-4">
 
-        <div class="mb-5 animate__animated animate__fadeInDown">
-            <h2 class="section-title mb-1">Laporan Transaksi</h2>
-            <p class="text-muted mb-0">
-                Riwayat transaksi barang masuk dan barang keluar
-            </p>
-        <!-- HEADER JUDUL HALAMAN -->
         <!-- HEADER JUDUL HALAMAN -->
         <div class="mb-5 animate__animated animate__fadeInDown d-flex justify-content-between align-items-end">
             <div>
