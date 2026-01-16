@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Supplier extends CI_Controller {
+class Supplier extends CI_Controller
+{
 
     // Cek login, cek role admin, dan load model supplier
     public function __construct()
@@ -23,7 +24,7 @@ class Supplier extends CI_Controller {
     // Menampilkan daftar semua supplier
     public function index()
     {
-        $data['title']    = 'Data Supplier';
+        $data['title'] = 'Data Supplier';
         $data['supplier'] = $this->Supplier_model->get_all();
 
         $this->load->view('templates/header', $data);
@@ -46,8 +47,8 @@ class Supplier extends CI_Controller {
     {
         $data = [
             'nama_supplier' => $this->input->post('nama_supplier'),
-            'alamat'        => $this->input->post('alamat'),
-            'telepon'       => $this->input->post('telepon')
+            'alamat' => $this->input->post('alamat'),
+            'telepon' => $this->input->post('telepon')
         ];
 
         $this->Supplier_model->insert($data);
@@ -57,7 +58,7 @@ class Supplier extends CI_Controller {
     // Menampilkan form edit supplier
     public function edit($id)
     {
-        $data['title']    = 'Edit Supplier';
+        $data['title'] = 'Edit Supplier';
         $data['supplier'] = $this->Supplier_model->get_by_id($id);
 
         $this->load->view('templates/header', $data);
@@ -72,11 +73,25 @@ class Supplier extends CI_Controller {
 
         $data = [
             'nama_supplier' => $this->input->post('nama_supplier'),
-            'alamat'        => $this->input->post('alamat'),
-            'telepon'       => $this->input->post('telepon')
+            'alamat' => $this->input->post('alamat'),
+            'telepon' => $this->input->post('telepon')
         ];
 
         $this->Supplier_model->update($id, $data);
+        redirect('master/supplier');
+    }
+
+    // Menghapus data supplier
+    public function hapus($id)
+    {
+        // Cek ketergantungan dulu
+        if ($this->Supplier_model->check_dependencies($id)) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Data tidak dapat dihapus karena digunakan di barang masuk!</div>');
+            redirect('master/supplier');
+        }
+
+        $this->Supplier_model->delete($id);
+        $this->session->set_flashdata('success', 'Supplier berhasil dihapus');
         redirect('master/supplier');
     }
 

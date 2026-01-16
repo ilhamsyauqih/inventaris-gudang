@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Supplier_model extends CI_Model {
+class Supplier_model extends CI_Model
+{
 
     // Ambil semua data supplier
     public function get_all()
@@ -26,6 +27,26 @@ class Supplier_model extends CI_Model {
     {
         $this->db->where('id_supplier', $id);
         return $this->db->update('supplier', $data);
+    }
+
+    // Menghapus data supplier berdasarkan ID
+    public function delete($id)
+    {
+        $this->db->where('id_supplier', $id);
+        return $this->db->delete('supplier');
+    }
+
+    // Cek ketergantungan sebelum hapus
+    public function check_dependencies($id)
+    {
+        $this->db->where('id_supplier', $id);
+        $count = $this->db->count_all_results('barang_masuk');
+
+        if ($count > 0) {
+            return true;
+        }
+
+        return false;
     }
 
 }
