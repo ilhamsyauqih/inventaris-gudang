@@ -10,7 +10,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Style khusus halaman register -->
     <style>
         body {
             min-height: 100vh;
