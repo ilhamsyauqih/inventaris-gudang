@@ -8,7 +8,6 @@ class LaporanTransaksi extends CI_Controller
     {
         parent::__construct();
 
-        // admin & petugas boleh akses
         if (!in_array($this->session->userdata('role'), ['admin', 'petugas'])) {
             show_error('Akses ditolak', 403);
         }

@@ -1,17 +1,13 @@
-<!-- WRAPPER HALAMAN INPUT BARANG KELUAR -->
 <div class="content-wrapper krem-bg">
     <div class="container-fluid py-4">
 
-        <!-- JUDUL HALAMAN -->
         <h2 class="page-title centered mb-4">Input Barang Keluar</h2>
 
-        <!-- CARD FORM -->
         <div class="form-card">
             <form method="post" action="<?= base_url('transaksi/barangkeluar/simpan'); ?>">
 
                 <div class="form-grid">
 
-                    <!-- PILIH NAMA BARANG -->
                     <div class="form-row">
                         <div class="icon-box">
                             <i class="bi bi-box-seam"></i>
@@ -29,7 +25,6 @@
                         </div>
                     </div>
 
-                    <!-- INPUT JUMLAH BARANG -->
                     <div class="form-row">
                         <div class="icon-box">
                             <i class="bi bi-hash"></i>
@@ -40,7 +35,6 @@
                         </div>
                     </div>
 
-                    <!-- INPUT TANGGAL BARANG KELUAR -->
                     <div class="form-row">
                         <div class="icon-box">
                             <i class="bi bi-calendar-event"></i>
@@ -51,7 +45,6 @@
                         </div>
                     </div>
 
-                    <!-- INPUT TUJUAN BARANG -->
                     <div class="form-row">
                         <div class="icon-box">
                             <i class="bi bi-geo-alt"></i>
@@ -62,7 +55,6 @@
                         </div>
                     </div>
 
-                    <!-- TOMBOL AKSI -->
                     <div class="form-action full mt-3">
                         <button type="submit" class="btn btn-success btn-pill px-4">
                             Simpan

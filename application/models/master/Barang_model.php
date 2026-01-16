@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Barang_model extends CI_Model {
+class Barang_model extends CI_Model
+{
 
     // Ambil semua data barang + nama kategori (pakai join)
     public function get_all()
@@ -18,7 +19,7 @@ class Barang_model extends CI_Model {
     public function get_kategori()
     {
         return $this->db->get('kategori')->result();
-    }       
+    }
 
     // Simpan data barang baru
     public function insert($data)
@@ -54,6 +55,24 @@ class Barang_model extends CI_Model {
     {
         $this->db->where('id_barang', $id);
         return $this->db->delete('barang');
+    }
+
+    // Cek ketergantungan data sebelum hapus
+    public function check_dependencies($id)
+    {
+        // Cek di tabel barang_masuk
+        $this->db->where('id_barang', $id);
+        $count_masuk = $this->db->count_all_results('barang_masuk');
+
+        // Cek di tabel barang_keluar
+        $this->db->where('id_barang', $id);
+        $count_keluar = $this->db->count_all_results('barang_keluar');
+
+        if ($count_masuk > 0 || $count_keluar > 0) {
+            return true;
+        }
+
+        return false;
     }
 
 }

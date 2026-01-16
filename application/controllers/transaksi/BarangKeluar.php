@@ -1,17 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*
-| Controller BarangKeluar
-| Mengelola proses transaksi barang keluar
-*/
 class BarangKeluar extends CI_Controller {
 
     public function __construct()
     {
         parent::__construct();
 
-        // Cek login, jika belum maka arahkan ke halaman login
         if (!$this->session->userdata('logged_in')) {
             redirect('auth/login');
         }
@@ -21,7 +16,6 @@ class BarangKeluar extends CI_Controller {
         $this->load->model('master/Barang_model');
     }
 
-    // Menampilkan daftar barang keluar
     public function index()
     {
         $data['title']  = 'Barang Keluar';
@@ -32,7 +26,6 @@ class BarangKeluar extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    // Menampilkan form tambah barang keluar
     public function tambah()
     {
         $data['barang'] = $this->Barang_model->get_all();
@@ -42,7 +35,6 @@ class BarangKeluar extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    // Menyimpan data barang keluar
     public function simpan()
     {
         $data = [
