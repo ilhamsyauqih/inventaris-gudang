@@ -132,8 +132,15 @@ class Barang extends CI_Controller
     }
 
     // Menghapus data barang dan file gambarnya
+    // Menghapus data barang dan file gambarnya
     public function hapus($id)
     {
+        // Cek ketergantungan dulu
+        if ($this->Barang_model->check_dependencies($id)) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Data tidak dapat dihapus karena sudah ada transaksi barang masuk/keluar!</div>');
+            redirect('master/barang');
+        }
+
         $barang = $this->Barang_model->get_by_id($id);
 
         if (!$barang) {
@@ -142,12 +149,6 @@ class Barang extends CI_Controller
 
         if ($barang->gambar && file_exists('./assets/uploads/barang/' . $barang->gambar)) {
             unlink('./assets/uploads/barang/' . $barang->gambar);
-        }
-
-        // Cek ketergantungan
-        if ($this->Barang_model->check_dependencies($id)) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Data tidak dapat dihapus karena sudah ada transaksi barang masuk/keluar!</div>');
-            redirect('master/barang');
         }
 
         $this->Barang_model->delete($id);
